@@ -2,6 +2,9 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
+// Middleware
+app.use(express.static('public'));
+
 // Variável com os dados
 const alimentos = [
     {id: 1, nome: "Feijão", preco: 10},
@@ -9,9 +12,6 @@ const alimentos = [
     {id: 3, nome: "Frutas", preco: 70},
     {id: 4, nome: "Sopas", preco: 40}
 ];
-
-
-
 
 // Criar um função
 // Rota principal
@@ -22,6 +22,12 @@ app.get('/', (req, res) => {
 // Produtos
 app.get('/produtos', (req, res) => {
     res.send(alimentos);
+});
+
+// Rota Home
+app.get('/home', (req, res) => {
+    // console.log("Olá", __dirname)
+    res.sendFile(__dirname + '/public/index.html');
 });
 
 // Executando o servidor
