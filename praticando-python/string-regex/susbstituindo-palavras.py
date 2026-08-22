@@ -1,0 +1,10 @@
+import re
+
+texto = input("Digite o texto a ser revisado: ")
+palavra_antiga = input("qual palavra deseja substituir? ")
+palavra_nova = input("Qual a nova palavra? ")
+
+# nova_frase = re.sub(rf'\b{palavra_antiga}\b', palavra_nova, texto)
+nova_frase = texto.replace(palavra_antiga, palavra_nova)
+print(nova_frase)
+
